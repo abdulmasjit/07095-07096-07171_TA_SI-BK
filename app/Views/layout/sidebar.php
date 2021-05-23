@@ -3,14 +3,14 @@
         <div class="sidebar-menu">
             <ul>
                 <li class="header-menu"><span>Menu</span></li>
-                <li><a href="#"><i class="fa fa-home"></i><span>Home</span></a></li>
+                <li><a href="<?= SITE_URL; ?>/home"><i class="fa fa-home"></i><span>Home</span></a></li>
                 <li class="sidebar-dropdown">
                     <a href="#"><i class="fa fa-list"></i><span>Master Data</span></a>
                     <div class="sidebar-submenu">
                         <ul>
                             <li><a href="#">Kelas</a></li>
                             <li><a href="#">Guru</a></li>
-                            <li><a href="#">Kategori</a></li>
+                            <li><a href="<?= SITE_URL; ?>/kategori">Kategori</a></li>
                             <li><a href="#">Pelanggaran</a></li>
                         </ul>
                     </div>

@@ -11,7 +11,7 @@
         <h3>0</h3>
         <p>Siswa</p>
       </div>
-      <div class="icon">
+      <div class="icon d-icons">
         <i class="fa fa-user"></i>
       </div>
       <a href="javascript:void(0)" @click="visitor"  class="small-box-footer">Lihat</a>
@@ -23,7 +23,7 @@
         <h3>0</h3>
         <p>Guru</p>
       </div>
-      <div class="icon">
+      <div class="icon d-icons">
         <i class="fa fa-user"></i>
       </div>
       <a href="javascript:void(0)" @click="visitor"  class="small-box-footer">Lihat</a>
@@ -35,7 +35,7 @@
         <h3>0</h3>
         <p>Kelas</p>
       </div>
-      <div class="icon">
+      <div class="icon d-icons">
         <i class="fa fa-user"></i>
       </div>
       <a href="javascript:void(0)" @click="visitor"  class="small-box-footer">Lihat</a>
@@ -47,7 +47,7 @@
         <h3>0</h3>
         <p>Pelanggaran</p>
       </div>
-      <div class="icon">
+      <div class="icon d-icons">
         <i class="fa fa-user"></i>
       </div>
       <a href="javascript:void(0)" @click="visitor"  class="small-box-footer">Lihat</a>

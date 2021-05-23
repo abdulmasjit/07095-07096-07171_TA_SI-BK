@@ -8,11 +8,6 @@ class Controller{
     require_once 'app/Views/' . $name . '.php';
   }
 
-  public function parse_template($name, $data=[]){
-    extract($data);
-    require_once 'app/Views/' . $name . '.php';
-  }
-
   public function model($name){
     require_once 'app/Models/' . $name . '.php';  
     return new $name();
