@@ -1,4 +1,4 @@
-<footer style="position:absolute; right:0; left:0; bottom:0; padding: 10px 0px 3px 16px; margin-top:10px;" class="bg-light d-flex justify-content-between">
+<footer style="position:absolute; right:0; left:0; bottom:0; padding: 10px 0px 3px 16px; margin-top:10px; background-color: rgb(245, 245, 245); border-top: 1px solid #d8dbe0;" class="d-flex justify-content-between">
   <span>Copyright © 2021 <a href="javascript:;">All Team</a></span>
   <ul class="nav" style="margin-top:-10px;">
     <li class="nav-item">

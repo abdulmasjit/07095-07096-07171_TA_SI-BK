@@ -18,7 +18,7 @@
     <!-- Main -->
     <div class="container-fluid">
       <div class="row">
-        <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4" style="min-height:calc(100vh - 56px); padding:20px 0px 60px 0px;">  
+        <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4" style="min-height:calc(100vh - 56px); padding:20px 0px 60px 0px;background-color: #f4f4f4;">  
           <?php include 'app/Views/'. $content; ?>       
           <!-- Footer -->
           <?php require_once 'app/Views/layout/footer.php' ?>   

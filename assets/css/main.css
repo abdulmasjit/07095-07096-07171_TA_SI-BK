@@ -1,3 +1,8 @@
+.c-header{
+  background: #2CA5DE;
+  color:white;
+}
+
 .sidebar {
   /* position: fixed; */
   top: 0;
@@ -13,6 +18,9 @@
   height: 100%;
   overflow-y: auto;
   position: fixed;
+  background:#343a40 !important; 
+  color:white !important;
+  border-right: 1px solid #d8dbe0;
 }
 .navbar {
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .1);
@@ -53,17 +61,21 @@
   padding: 15px 20px 5px 20px;
   display: inline-block;
 }
+/* ON */
 .sidebar-wrapper .sidebar-menu ul li a {
   display: inline-block;
   width: 100%;
   text-decoration: none;
   position: relative;
-  padding: 8px 30px 8px 20px;
+  padding: 8px 30px 8px 13px;
+  /* color:rgba(0, 0, 0, 0.87) !important; */
+  color:#f7f7f7 !important;
+  font-size: 11pt;
+  font-weight: 600;
 }
 /* ON */
 .sidebar-wrapper .sidebar-menu ul li a i {
   margin-right: 10px;
-  font-size: 12px;
   width: 30px;
   height: 30px;
   line-height: 30px;
@@ -226,5 +238,5 @@
   background-color: #dd4b39 !important;
 }
 .d-icons{
-  font-size:65px !important;
+  font-size:60px !important;
 }

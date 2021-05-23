@@ -2,26 +2,25 @@
 if(!session_id()) {session_start();}
 
 require_once 'app/init.php';
+require_once "app/Controllers/AuthController.php";
 require_once "app/Controllers/HomeController.php";
 require_once "app/Controllers/KategoriController.php";
 
+// Auth
+Route::set('/auth/login', function(){
+  (new AuthController())->login();
+}, 'POST');
+Route::set('/auth/logout', function(){
+  (new AuthController())->logout();
+});
+
 // Home
 Route::set('/', function(){
-  (new HomeController())->index();
+  (new AuthController())->index();
 });
 Route::set('/home', function(){
   (new HomeController())->index();
 });
-
-// Example Post Data 
-// Route::set('/home/post', function(){
-//   (new Home())->getPost();
-// }, 'POST');
-
-// Example Url With Params
-// Route::set('/home/{any}', function ($nama) {
-//   echo "nama $nama";
-// });
 
 // Master Kategori
 Route::set('/kategori', function(){
