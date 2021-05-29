@@ -1,5 +1,5 @@
 .c-header{
-  background: #2CA5DE;
+  background: #1976d2 !important;
   color:white;
 }
 
@@ -70,7 +70,7 @@
   padding: 8px 30px 8px 13px;
   /* color:rgba(0, 0, 0, 0.87) !important; */
   color:#f7f7f7 !important;
-  font-size: 11pt;
+  font-size: 92%;
   font-weight: 600;
 }
 /* ON */
