@@ -18,7 +18,7 @@ class AuthController extends Controller{
         $password = $_POST['password'];
         $data = $this->authModel->checkAuth($username, $password);
         if($data){
-            $_SESSION['role'] = data['role'];
+            $_SESSION['role'] = $data['role'];
             $_SESSION['user'] = $data;
             header('location:'. SITE_URL .'/home');
         }else{
