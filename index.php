@@ -40,4 +40,3 @@ Route::set('/kategori/get-detail', function () {
 }, 'POST');
 
 
-
