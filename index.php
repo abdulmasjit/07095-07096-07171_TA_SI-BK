@@ -45,4 +45,3 @@ Route::set('/coba/route/{any}/{id}', function ($nama, $umur) {
   echo "Nama $nama, umur $umur";  
 });
 
-
