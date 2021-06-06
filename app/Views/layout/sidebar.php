@@ -15,7 +15,7 @@
                         </ul>
                     </div>
                 </li>
-                <li><a href="#"><i class="fa fa-users"></i><span>Data Siswa</span></a></li>
+                <li><a href="<?= SITE_URL; ?>/siswa"><i class="fa fa-users"></i><span>Data Siswa</span></a></li>
                 <li><a href="#"><i class="fa fa-copy"></i><span>Pelanggaran Siswa</span></a></li>
             </ul>
         </div>
