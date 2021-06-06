@@ -8,6 +8,7 @@ require_once "app/Controllers/AuthController.php";
 require_once "app/Controllers/HomeController.php";
 require_once "app/Controllers/KategoriController.php";
 require_once "app/Controllers/GuruController.php";
+require_once "app/Controllers/SiswaController.php";
 
 // Auth
 Route::set('/auth/login', function () {
@@ -59,6 +60,20 @@ Route::set('/guru/delete/{any}', function ($id) {
   (new GuruController())->delete($id);
 });
 
-Route::set('/coba/route/{any}/{id}', function ($nama, $umur) {
-  echo "Nama $nama, umur $umur";
+// Master Siswa
+Route::set('/siswa', function () {
+  (new SiswaController)->index();
+}, 'GET|POST');
+Route::set('/siswa/add', function () {
+  (new SiswaController)->create();
 });
+Route::set('/siswa/edit/{id}', function ($id) {
+  (new SiswaController)->edit($id);
+});
+Route::set('/siswa/save', function () {
+  (new SiswaController())->save();
+}, 'POST');
+Route::set('/siswa/delete/{any}', function ($id) {
+  (new SiswaController())->delete($id);
+});
+

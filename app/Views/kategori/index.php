@@ -34,7 +34,7 @@
                   <td><?= $row['nama_kategori'] ?></td>
                   <td style="text-align:center;">
                     <a href="javascript:;" class="btn btn-sm btn-warning btn-ubah" data-id="<?= $row['id_kategori'] ?>">Ubah</a>
-                    <a href="<?= SITE_URL ?>/kategori/delete/<?= $row['id_kategori'] ?>" class="btn btn-sm btn-danger">Hapus</a>
+                    <a href="<?= SITE_URL ?>/kategori/delete/<?= $row['id_kategori'] ?>" onclick="return confirm('Apakah Anda yakin menghapus data kategori ?')" class="btn btn-sm btn-danger">Hapus</a>
                   </td>
                 </tr>
               <?php } ?>
