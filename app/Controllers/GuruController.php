@@ -50,19 +50,22 @@ class GuruController extends Controller
             'address' => $_POST['address']
         );
         $save = null;
+        $editOrAdd = null;
         if ($id) {
             $save = $this->guruModel->update($id, $data);
+            $editOrAdd = 'diubah';
         } else {
             $save = $this->guruModel->insert($data);
+            $editOrAdd = 'ditambah';
         }
 
         // echo 'ini di cont', $save;
         // return hasil query save 1
         if ($save) {
-            Flasher::setFlash('Data Guru berhasil ditambahkan', 'Berhasil', 'success');
+            Flasher::setFlash("Data Guru berhasil $editOrAdd", 'Berhasil', 'success');
             header('location:' . SITE_URL . '/guru');
         } else {
-            Flasher::setFlash('Data Guru gagal ditambahkan', 'Gagal', 'danger');
+            Flasher::setFlash("Data Guru gagal $editOrAdd", 'Gagal', 'danger');
             header('location:' . SITE_URL . '/guru');
         }
     }

@@ -9,6 +9,7 @@ require_once "app/Controllers/HomeController.php";
 require_once "app/Controllers/KategoriController.php";
 require_once "app/Controllers/GuruController.php";
 require_once "app/Controllers/SiswaController.php";
+require_once "app/Controllers/PelanggaranController.php";
 
 // Auth
 Route::set('/auth/login', function () {
@@ -77,3 +78,19 @@ Route::set('/siswa/delete/{any}', function ($id) {
   (new SiswaController())->delete($id);
 });
 
+// Master Guru
+Route::set('/pelanggaran', function () {
+  (new PelanggaranController)->index();
+});
+Route::set('/pelanggaran/add', function () {
+  (new PelanggaranController)->create();
+});
+Route::set('/pelanggaran/edit/{id}', function ($id) {
+  (new PelanggaranController)->edit($id);
+});
+Route::set('/pelanggaran/simpan', function () {
+  (new PelanggaranController())->store();
+}, 'POST');
+Route::set('/pelanggaran/delete/{any}', function ($id) {
+  (new PelanggaranController())->delete($id);
+});
