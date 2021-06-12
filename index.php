@@ -39,5 +39,23 @@ Route::set('/kategori/get-detail', function () {
   (new KategoriController())->getDetail();  
 }, 'POST');
 
+// Master Kelas
+Route::set('/Kelas', function(){
+  (new KelasController())->index();
+});
+Route::set('/Kelas/save', function(){
+  (new KelasController())->save();
+}, 'POST');
+Route::set('/Kelas/update', function(){
+  (new KelasController())->update();
+}, 'POST');
+Route::set('/Kelas/delete/{any}', function ($id) {
+  (new KelasController())->delete($id);  
+});
+Route::set('/Kelas/get-detail', function () {
+  (new KelasController())->getDetail();  
+}, 'POST');
+
+
 
 

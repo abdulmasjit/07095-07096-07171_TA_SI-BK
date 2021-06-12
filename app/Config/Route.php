@@ -4,7 +4,7 @@ class Route{
   public static function parse_url(){
     // $dirname = dirname($_SERVER['SCRIPT_NAME']);
     // $basename = basename($_SERVER['SCRIPT_NAME']);
-    $request_uri = str_replace(['/SIM-BK/index.php', '/SIM-BK'], null, $_SERVER['REQUEST_URI']);
+    $request_uri = str_replace(['/07095-07096-07171_TA_SI-BK/index.php', '/07095-07096-07171_TA_SI-BK'], null, $_SERVER['REQUEST_URI']);
     return $request_uri;
   }
 
