@@ -11,7 +11,7 @@
                             <li><a href="#">Kelas</a></li>
                             <li><a href="<?= SITE_URL; ?>/guru">Guru</a></li>
                             <li><a href="<?= SITE_URL; ?>/kategori">Kategori</a></li>
-                            <li><a href="#">Pelanggaran</a></li>
+                            <li><a href="<?= SITE_URL; ?>/pelanggaran">Pelanggaran</a></li>
                         </ul>
                     </div>
                 </li>
