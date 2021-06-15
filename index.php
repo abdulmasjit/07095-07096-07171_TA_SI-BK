@@ -5,6 +5,7 @@ require_once 'app/init.php';
 require_once "app/Controllers/AuthController.php";
 require_once "app/Controllers/HomeController.php";
 require_once "app/Controllers/KategoriController.php";
+require_once "app/Controllers/KelasController.php";
 
 // Auth
 Route::set('/auth/login', function(){
@@ -40,19 +41,19 @@ Route::set('/kategori/get-detail', function () {
 }, 'POST');
 
 // Master Kelas
-Route::set('/Kelas', function(){
+Route::set('/kelas', function(){
   (new KelasController())->index();
 });
-Route::set('/Kelas/save', function(){
+Route::set('/kelas/save', function(){
   (new KelasController())->save();
 }, 'POST');
-Route::set('/Kelas/update', function(){
+Route::set('/kelas/update', function(){
   (new KelasController())->update();
 }, 'POST');
-Route::set('/Kelas/delete/{any}', function ($id) {
+Route::set('/kelas/delete/{any}', function ($id) {
   (new KelasController())->delete($id);  
 });
-Route::set('/Kelas/get-detail', function () {
+Route::set('/kelas/get-detail', function () {
   (new KelasController())->getDetail();  
 }, 'POST');
 
