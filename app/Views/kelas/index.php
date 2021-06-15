@@ -16,7 +16,7 @@
             <a href="javascript:;" id="btn-tambah" class="btn btn-success">Tambah Kelas</a>
           </div>
         </div>
-        <div class="mt-4">
+        <!-- <div class="mt-4">
           <table class="table table-bordered">
             <thead>
               <tr class="bg-light">
@@ -26,9 +26,10 @@
               </tr>
             </thead>
             <tbody>
-              <?php 
+              <?php
               $no = 0;
-              foreach ($list as $row) { $no++ ?>
+              foreach ($list as $row) {
+                $no++ ?>
                 <tr>
                   <td style="text-align:center;"><?= $no; ?>.</td>
                   <td><?= $row['nama_kelas'] ?></td>
@@ -40,7 +41,7 @@
               <?php } ?>
             </tbody>
           </table>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -73,34 +74,36 @@
   </div>
 </div>
 <script>
-    /**
-      * Untuk menampilkan modal tambah
-     */
-    $('#btn-tambah').on('click', function(){
-        $('#formData').attr('action', '<?= SITE_URL ?>/kelas/save');
-        $("#formModalLabel").html('Tambah kelas');   
-        $("#formModal").modal('show');   
-    })
+  /**
+   * Untuk menampilkan modal tambah
+   */
+  $('#btn-tambah').on('click', function() {
+    $('#formData').attr('action', '<?= SITE_URL ?>/kelas/save');
+    $("#formModalLabel").html('Tambah kelas');
+    $("#formModal").modal('show');
+  })
 
-    /**
-      * Untuk menampilkan modal ubah
-     */
-    $('.btn-ubah').on('click', function(){
-        const id = $(this).data('id');
-        $("#formModalLabel").html('Ubah kelas');
-        $('#formData').attr('action', '<?= SITE_URL ?>/kelas/update');
+  /**
+   * Untuk menampilkan modal ubah
+   */
+  $('.btn-ubah').on('click', function() {
+    const id = $(this).data('id');
+    $("#formModalLabel").html('Ubah kelas');
+    $('#formData').attr('action', '<?= SITE_URL ?>/kelas/update');
 
-        $.ajax({
-            url : '<?= SITE_URL ?>/kelas/get-detail',
-            data : {id : id},
-            method : 'post',
-            dataType : 'json',
-            success : function (data) {
-                console.log('ubah data', data);
-                $("#id_kelas").val(data.id_kelas);      
-                $("#kelas").val(data.nama_kelas);      
-                $("#formModal").modal('show');      
-            }
-        })
+    $.ajax({
+      url: '<?= SITE_URL ?>/kelas/get-detail',
+      data: {
+        id: id
+      },
+      method: 'post',
+      dataType: 'json',
+      success: function(data) {
+        console.log('ubah data', data);
+        $("#id_kelas").val(data.id_kelas);
+        $("#kelas").val(data.nama_kelas);
+        $("#formModal").modal('show');
+      }
     })
+  })
 </script>

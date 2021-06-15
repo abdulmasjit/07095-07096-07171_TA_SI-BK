@@ -1,6 +1,8 @@
 <?php
-class KelasModel extends Model{
-    public function getAll(){
+class KelasModel extends Model
+{
+    public function getAll()
+    {
         $sql = " SELECT * FROM kategori ";
         $query = $this->db->query($sql);
 
@@ -20,7 +22,7 @@ class KelasModel extends Model{
 
     public function insert($data)
     {
-        $sql = "INSERT INTO kategori (nama_kategori) VALUES ('".$data['nama']."')";
+        $sql = "INSERT INTO kategori (nama_kategori) VALUES ('" . $data['nama'] . "')";
         return $this->db->query($sql);
     }
 

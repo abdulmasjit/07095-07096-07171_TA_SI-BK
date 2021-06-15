@@ -11,6 +11,7 @@ require_once "app/Controllers/KelasController.php";
 require_once "app/Controllers/GuruController.php";
 require_once "app/Controllers/SiswaController.php";
 require_once "app/Controllers/PelanggaranController.php";
+require_once "app/Controllers/KelasController.php";
 
 // Auth
 Route::set('/auth/login', function () {
@@ -46,19 +47,23 @@ Route::set('/kategori/get-detail', function () {
 }, 'POST');
 
 // Master Kelas
-Route::set('/kelas', function(){
+Route::set('/kelas', function () {
   (new KelasController())->index();
 });
-Route::set('/kelas/save', function(){
+Route::set('/kelas/save', function () {
   (new KelasController())->save();
 }, 'POST');
-Route::set('/kelas/update', function(){
+Route::set('/kelas/update', function () {
   (new KelasController())->update();
 }, 'POST');
 Route::set('/kelas/delete/{any}', function ($id) {
-  (new KelasController())->delete($id); 
+  (new KelasController())->delete($id);
 });
- 
+Route::set('/kelas/get-detail', function () {
+  (new KelasController())->getDetail();
+}, 'POST');
+
+
 // Master Guru
 Route::set('/guru', function () {
   (new GuruController)->index();
@@ -75,11 +80,6 @@ Route::set('/guru/simpan', function () {
 Route::set('/guru/delete/{any}', function ($id) {
   (new GuruController())->delete($id);
 });
-Route::set('/kelas/get-detail', function () {
-  (new KelasController())->getDetail();  
-}, 'POST');
-
-
 
 // Master Siswa
 Route::set('/siswa', function () {
