@@ -10,7 +10,9 @@
                 <div class="col-lg-6">
                     <div class="mb-3">
                         <label for="nip" class="form-label">NIP</label>
-                        <input id="nip" name="nip" class="form-control" type="number" class="w-full" value="<?= $form['nip'] ?>" required />
+                        <input id="nip" name="nip" class="form-control" type="number" <?php if ($form['id_guru']) {
+                                                                                            echo "disabled='true'";
+                                                                                        } ?> class="w-full" value="<?= $form['nip'] ?>" required />
                     </div>
                     <div class="mb-3">
                         <label for="name" class="form-label">Nama</label>
@@ -18,7 +20,9 @@
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input id="password" name="password" class="form-control" value="<?= $form['password'] ?>" type="password" class="w-full" required />
+                        <input id="password" name="password" class="form-control" <?php if ($form['id_guru']) {
+                                                                                        echo "disabled='true'";
+                                                                                    } ?> value="<?= $form['password'] ?>" type="password" class="w-full" required />
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -40,12 +44,12 @@
                     </div>
                     <div class="mb-3">
                         <label for="address" class="form-label">Alamat</label>
-                        <textarea class="form-control" id="address" name="address" rows="1">
-                        <?= $form['alamat']; ?></textarea>
+                        <textarea class="form-control" id="address" name="address" rows="1"><?= (isset($form)) ? $form['alamat'] : '' ?></textarea>
                     </div>
                 </div>
             </div>
             <div class="d-flex justify-content-end mt-2">
+                <a href="<?= SITE_URL; ?>/guru" class="btn btn-secondary mr-3">Batal</a>
                 <button class="btn btn-primary float-end" type="submit">Simpan</button>
             </div>
         </form>
