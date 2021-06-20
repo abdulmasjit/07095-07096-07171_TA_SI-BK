@@ -3,7 +3,7 @@ class KelasModel extends Model
 {
     public function getAll()
     {
-        $sql = " SELECT * FROM kategori ";
+        $sql = " SELECT * FROM kelas ";
         $query = $this->db->query($sql);
 
         $hasil = [];
@@ -15,27 +15,36 @@ class KelasModel extends Model
 
     public function getById($id)
     {
-        $sql = "SELECT * FROM kategori WHERE id_kategori = $id";
+        $sql = "SELECT * FROM kelas WHERE id_kelas = $id";
         $query = $this->db->query($sql);
         return $query->fetch_assoc();
     }
 
     public function insert($data)
     {
-        $sql = "INSERT INTO kategori (nama_kategori) VALUES ('" . $data['nama'] . "')";
+        // echo 'ini insert', var_dump($data);
+        $namaSiswa = $data['nama_siswa'];
+        $kelas = $data['kelas'];
+        $sql = "INSERT INTO kelas (nama_siswa, kelas) 
+        VALUES ('$namaSiswa', $kelas)";
         return $this->db->query($sql);
     }
 
     public function update($id, $data)
     {
-        $nama = $data['nama'];
-        $sql = "UPDATE kategori SET nama_kategori = '$nama' WHERE id_kategori = $id ";
+        $nama = $data['nama_siswa'];
+        $kelas = $data['kelas'];
+        $sql = "UPDATE kelas SET 
+        nama_siswa = '$nama',
+        kelas = '$kelas' 
+        WHERE id_kelas = $id ";
         return $this->db->query($sql);
+
     }
 
     public function delete($id)
     {
-        $sql = "DELETE FROM kategori WHERE id_kategori = $id";
+        $sql = "DELETE FROM kelas WHERE id_kelas = $id";
         return $this->db->query($sql);
     }
 }
