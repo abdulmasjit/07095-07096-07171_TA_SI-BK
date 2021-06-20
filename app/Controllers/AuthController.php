@@ -21,10 +21,12 @@ class AuthController extends Controller
         if ($data) {
             $_SESSION['role'] = $data['role'];
             $_SESSION['user'] = $data;
-            header('location:' . SITE_URL . '/home');
+            // header('location:' . SITE_URL . '/home');
+            $this->redirect('/home');
         } else {
             Flasher::setFlash('Login gagal username atau password salah', 'Maaf!', 'danger');
-            header('location:' . SITE_URL . '/');
+            // header('location:' . SITE_URL . '/');
+            $this->redirect('/');  
         }
     }
 

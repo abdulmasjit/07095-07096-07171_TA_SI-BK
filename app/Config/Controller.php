@@ -12,4 +12,8 @@ class Controller{
     require_once 'app/Models/' . $name . '.php';  
     return new $name();
   }
+
+  public function redirect($url){
+    header('location:' . SITE_URL . $url);
+  }
 }
