@@ -8,21 +8,21 @@
             <input type="hidden" name="id" value="<?= $form['id_pelanggaran'] ?>" />
             <div class="">
                 <div class="mb-3">
-                    <label for="point" class="form-label">Point</label>
-                    <input id="point" name="point" class="form-control" type="number" min="0" max="100" class="w-full" value="<?= $form['point'] ?>" required />
-                </div>
-                <div class="mb-3">
                     <label for="namaPelanggaran" class="form-label">Nama Pelanggaran</label>
                     <input id="namaPelanggaran" name="namaPelanggaran" class="form-control" value="<?= $form['nama_pelanggaran'] ?>" type="text" class="w-full" required />
                 </div>
                 <div class="mb-3">
-                    <label for="kategori" class="form-label">Nama Pelanggaran</label>
+                    <label for="kategori" class="form-label">Kategori Pelanggaran</label>
                     <select name="kategori" id="kategori" class="form-control" required>
                         <option value="">Pilih Kategori Pelanggaran</option>
                         <?php foreach ($listKategori as $key) : ?>
                             <option value="<?php echo $key['id_kategori'] ?>" <?php if ($key['id_kategori'] == $form['id_kategori']) : ?> selected="selected" <?php endif; ?>><?php echo $key['nama_kategori'] ?></option>
                         <?php endforeach; ?>
                     </select>
+                </div>
+                <div class="mb-3">
+                    <label for="point" class="form-label">Point</label>
+                    <input id="point" name="point" class="form-control" type="number" min="0" max="100" class="w-full" value="<?= $form['point'] ?>" required />
                 </div>
             </div>
             <div class="d-flex justify-content-end mt-2">

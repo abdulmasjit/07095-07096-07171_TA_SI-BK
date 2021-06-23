@@ -11,7 +11,6 @@ class PelanggaranController extends Controller
     {
         $data['title'] = 'Master Pelanggaran';
         $data['list'] = $this->pelanggaranModel->getAll();
-        $data['listKategori'] = $this->kategoriModel->getAll();
         $data['content'] = "pelanggaran/index.php";
         $this->view('layout/template', $data);
     }
