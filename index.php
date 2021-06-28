@@ -11,6 +11,7 @@ require_once "app/Controllers/GuruController.php";
 require_once "app/Controllers/SiswaController.php";
 require_once "app/Controllers/PelanggaranController.php";
 require_once "app/Controllers/PelanggaranSiswaController.php";
+require_once "app/Controllers/PantauPelanggaranController.php";
 
 // Auth
 Route::set('/auth/login', function () {
@@ -111,4 +112,12 @@ Route::set('/pelanggaran-siswa/simpan', function () {
 }, 'POST');
 Route::set('/pelanggaran-siswa/delete/{any}', function ($id) {
   (new PelanggaranSiswaController())->delete($id);
+});
+
+// Pantau Pelanggaran
+Route::set('/pantau-pelanggaran', function () {
+  (new PantauPelanggaranController)->index();
+}, 'GET|POST');
+Route::set('/detail-pelanggaran/{any}', function ($id) {
+  (new PantauPelanggaranController)->detailPelanggaran($id);
 });

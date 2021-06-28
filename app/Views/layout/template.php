@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="<?= BASE_URL; ?>assets/css/main.css">
     <script src="<?= BASE_URL; ?>assets/js/jquery-3.6.0.min.js"></script>
     <script src="<?= BASE_URL; ?>assets/js/popper.min.js"></script>
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <!-- <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet"> -->
 </head>
 <body>  
     <!-- Header -->

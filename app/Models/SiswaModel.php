@@ -6,10 +6,10 @@ class SiswaModel extends Model{
             LEFT JOIN kelas k ON s.id_kelas = k.id_kelas 
         ";
 
-		// Digunakan untuk fitur pencarian
-		if($keyword!=""){
-			$sql .= " WHERE concat(s.nis, s.nama_siswa, k.nama_kelas) like '%$keyword%'";
-		}
+        // Digunakan untuk fitur pencarian
+        if($keyword!=""){
+          $sql .= " WHERE concat(s.nis, s.nama_siswa, k.nama_kelas) like '%$keyword%'";
+        }
         $query = $this->db->query($sql);
 
         $hasil = [];
@@ -17,6 +17,22 @@ class SiswaModel extends Model{
             $hasil[] = $data;
         }
         return $hasil;
+    }
+
+    public function getSiswaByKelas($idKelas="", $keyword=""){
+      $sql = " 
+          SELECT s.*, k.nama_kelas FROM siswa s
+          LEFT JOIN kelas k ON s.id_kelas = k.id_kelas 
+          WHERE concat(s.nis, s.nama_siswa, k.nama_kelas) like '%$keyword%'
+          AND s.id_kelas = $idKelas
+      ";
+      $query = $this->db->query($sql);
+
+      $hasil = [];
+      while ($data = $query->fetch_assoc()) {
+          $hasil[] = $data;
+      }
+      return $hasil;
     }
 
     public function getListKelas(){
@@ -33,6 +49,15 @@ class SiswaModel extends Model{
     public function getById($id)
     {
         $sql = "SELECT * FROM siswa WHERE id_siswa = $id";
+
+        // select s.nis, s.nama_siswa, kl.nama_kelas as kelas from siswa s
+        // join kelas kl on s.id_kelas = kl.id_kelas
+        // LEFT JOIN (
+        // 	SELECT ps.id_siswa, COUNT(ps.id_siswa), SUM(p.POINT) FROM pelanggaran_siswa ps
+        // 	LEFT JOIN pelanggaran p ON ps.id_pelanggaran = p.id_pelanggaran
+        // 	GROUP BY ps.id_siswa 
+        // ) ps ON ps.id_siswa = s.id_siswa 
+
         $query = $this->db->query($sql);
         return $query->fetch_assoc();
     }

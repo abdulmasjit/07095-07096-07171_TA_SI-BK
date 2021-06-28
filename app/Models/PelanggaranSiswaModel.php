@@ -75,4 +75,22 @@ class PelanggaranSiswaModel extends Model
         $sql = "DELETE FROM pelanggaran_siswa WHERE id = $id";
         return $this->db->query($sql);
     }
+
+    public function pelanggaranByIdSiswa($id)
+    {
+        $sql = "
+            SELECT p.nama_pelanggaran, kt.nama_kategori as kategori,
+            ps.tgl_melanggar as tanggal, p.point, ps.tempat, ps.keterangan FROM pelanggaran_siswa ps
+            left join pelanggaran p on ps.id_pelanggaran = p.id_pelanggaran
+            left join kategori kt on p.id_kategori = kt.id_kategori
+            WHERE ps.id_siswa = $id
+        ";
+        $query = $this->db->query($sql);
+        
+        $hasil = [];
+        while ($data = $query->fetch_assoc()) {
+            $hasil[] = $data;
+        }
+        return $hasil;
+    }
 }
