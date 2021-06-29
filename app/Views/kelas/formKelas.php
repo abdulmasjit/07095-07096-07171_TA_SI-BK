@@ -1,5 +1,6 @@
 <!-- <?= var_dump($data) ?> -->
 <div class="card">
+
     <div class="card-header c-header">
         <span><b><?= $title ?></b></span>
     </div>
@@ -9,15 +10,15 @@
             <div class="">
                 <div class="mb-3">
                     <label for="nama" class="form-label">Kelas</label>
-                    <input id="nama" name="nama" class="form-control" value="<?= $form['nama_siswa'] ?>" type="text" class="w-full" required />
+                    <input id="nama" name="nama" class="form-control" value="<?= $form['nama_kelas'] ?>" type="text" class="w-full" required />
                 </div>
                 <div class="mb-3">
-                    <label for="id_walikelas" class="form-label">ID Wali Kelas</label>
-                    <input id="id_walikelas" name="id_walikelas" class="form-control" value="<?= $form['id_walikelas'] ?>" type="text" class="w-full" required />
+                    <label for="idwalikelas" class="form-label">ID Wali Kelas</label>
+                    <input id="idwalikelas" name="idwalikelas" class="form-control" value="<?= $form['id_walikelas'] ?>" type="text" class="w-full" required />
                 </div>
                 <div class="mb-3">
-                    <label for="daya_tampung" class="form-label">Daya Tampung</label>
-                    <input id="daya_tampung" name="daya_tampung" class="form-control" value="<?= $form['daya_tampung'] ?>" type="text" class="w-full" required />
+                    <label for="dayatampung" class="form-label">Daya Tampung</label>
+                    <input id="dayatampung" name="dayatampung" class="form-control" value="<?= $form['daya_tampung'] ?>" type="text" class="w-full" required />
                 </div>
             </div>
             <div class="d-flex justify-content-end mt-2">

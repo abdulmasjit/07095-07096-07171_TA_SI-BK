@@ -5,6 +5,7 @@ class KelasController extends Controller
   public function __construct()
   {
     $this->KelasModel = $this->model('KelasModel');
+    $this->GuruModel = $this->model('GuruModel');
   }
 
   public function index()
@@ -20,6 +21,23 @@ class KelasController extends Controller
     $id = $_POST['id'];
     $data = $this->KelasModel->getById($id);
     echo json_encode($data);
+  }
+
+  public function create()
+  {
+      $data['title'] = 'Tambah Kelas';
+      $data['listKelas'] = $this->GuruModel->getAll();
+      $data['content'] = "kelas/formKelas.php";
+      $this->view('layout/template', $data);
+      $data['form'] = array(
+        'id' => null,
+        'nama_kelas' => null,
+        'id_walikelas' => null,
+        'daya_tampung' => null,
+      );
+      $data['listKelas'] = $this->GuruModel->getAll();
+      $data['content'] = "kelas/formKelas.php";
+      $this->view('layout/template', $data);
   }
 
   public function save()

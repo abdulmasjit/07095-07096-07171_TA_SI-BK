@@ -50,9 +50,9 @@ Route::set('/kategori/get-detail', function () {
 Route::set('/kelas', function () {
   (new KelasController())->index();
 });
-Route::set('/kelas/save', function () {
-  (new KelasController())->save();
-}, 'POST');
+Route::set('/kelas/add', function () {
+  (new KelasController())->create();
+});
 Route::set('/kelas/update', function () {
   (new KelasController())->update();
 }, 'POST');
