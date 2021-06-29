@@ -22,24 +22,25 @@ class KelasModel extends Model
 
     public function insert($data)
     {
-        // echo 'ini insert', var_dump($data);
-        $namaSiswa = $data['nama_siswa'];
-        $kelas = $data['kelas'];
-        $sql = "INSERT INTO kelas (nama_siswa, kelas) 
-        VALUES ('$namaSiswa', $kelas)";
+        $namaKelas = $data['nama_kelas'];
+        $idWalikelas = $data['id_walikelas'];
+        $dayatampung = $data['daya_tampung'];
+        $sql = "INSERT INTO kelas (nama_kelas, id_walikelas, daya_tampung) 
+        VALUES ('$namaKelas', $idWalikelas, $dayatampung)";
         return $this->db->query($sql);
     }
 
     public function update($id, $data)
     {
-        $nama = $data['nama_siswa'];
-        $kelas = $data['kelas'];
+        $namaKelas = $data['nama_kelas'];
+        $idWalikelas = $data['id_walikelas'];
+        $dayatampung = $data['daya_tampung'];
         $sql = "UPDATE kelas SET 
-        nama_siswa = '$nama',
-        kelas = '$kelas' 
+        nama_kelas = '$namaKelas',
+        id_walikelas = '$idWalikelas', 
+        daya_tampung = '$dayatampung'  
         WHERE id_kelas = $id ";
         return $this->db->query($sql);
-
     }
 
     public function delete($id)

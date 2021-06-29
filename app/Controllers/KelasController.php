@@ -25,53 +25,56 @@ class KelasController extends Controller
 
   public function create()
   {
-      $data['title'] = 'Tambah Kelas';
-      $data['listKelas'] = $this->GuruModel->getAll();
-      $data['content'] = "kelas/formKelas.php";
-      $this->view('layout/template', $data);
-      $data['form'] = array(
-        'id' => null,
+    $data['title'] = 'Tambah Pelanggaran';
+    $data['form'] = array(
+        'id_kelas' => null,
         'nama_kelas' => null,
         'id_walikelas' => null,
-        'daya_tampung' => null,
-      );
-      $data['listKelas'] = $this->GuruModel->getAll();
-      $data['content'] = "kelas/formKelas.php";
-      $this->view('layout/template', $data);
+        'daya_tampung' => null
+    );
+    $data['listid_walikelas'] = $this->GuruModel->getAll();
+    $data['content'] = "kelas/formKelas.php";
+    $this->view('layout/template', $data);
   }
+
+  public function edit($id)
+    {
+        $data['title'] = 'Edit kelas';
+        $data['form'] = $this->KelasModel->getById($id);
+        $data['listid_walikelas'] = $this->GuruModel->getAll();
+        $data['content'] = "kelas/formKelas.php";
+        $this->view('layout/template', $data);
+    }
 
   public function save()
   {
-    $data = array(
-      'nama' => $_POST['Kelas']
-    );
-    $save = $this->KelasModel->insert($data);
-    // return hasil query save 1
-    if ($save) {
-      Flasher::setFlash('Data Kelas berhasil ditambahkan', 'Berhasil', 'success');
-      header('location:' . SITE_URL . '/Kelas');
-    } else {
-      Flasher::setFlash('Data Kelas gagal ditambahkan', 'Gagal', 'danger');
-      header('location:' . SITE_URL . '/Kelas');
-    }
-  }
+    $id = $_POST['id'];
+        $data = array(
+            'nama_kelas' => $_POST['nama'],
+            'id_walikelas' => $_POST['idwalikelas'],
+            'data_tampung' => $_POST['dayatampung'],
+        );
+        $save = null;
+        $editOrAdd = null;
+        if ($id) {
+            $save = $this->KelasModel->update($id, $data);
+            $editOrAdd = 'diubah';
+        } else {
+            $save = $this->KelasModel->insert($data);
+            $editOrAdd = 'ditambah';
+        }
 
-  public function update()
-  {
-    $id = $_POST['id_Kelas'];
-    $data = array(
-      'nama' => $_POST['Kelas']
-    );
-    $update = $this->KelasModel->update($id, $data);
-    if ($update) {
-      Flasher::setFlash('Data Kelas berhasil diupdate', 'Berhasil', 'success');
-      header('location:' . SITE_URL . '/Kelas');
-    } else {
-      Flasher::setFlash('Data Kelas gagal diupdate', 'Gagal', 'danger');
-      header('location:' . SITE_URL . '/Kelas');
-    }
+        // echo 'ini di cont', $save;
+        // return hasil query save 1
+        if ($save) {
+            Flasher::setFlash("Data Kelas berhasil $editOrAdd", 'Berhasil', 'success');
+            header('location:' . SITE_URL . '/kelas');
+        } else {
+            Flasher::setFlash("Data Kelas gagal $editOrAdd", 'Gagal', 'danger');
+            header('location:' . SITE_URL . '/kelas');
+        }
   }
-
+  
   public function delete($id)
   {
     $delete = $this->KelasModel->delete($id);
