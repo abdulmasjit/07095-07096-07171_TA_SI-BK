@@ -22,10 +22,10 @@
                         <thead>
                             <tr class="bg-light">
                                 <th width="10%" style="text-align:center;">No.</th>
-                                <th width="10%">Kelas</th>
-                                <th width="10%">Wali Kelas</th>
-                                <th width="10%">Daya Tampung</th>
-                                <th width="20%">Actions</th>
+                                <th width="25%">Kelas</th>
+                                <th width="25%">Wali Kelas</th>
+                                <th width="20%" style="text-align:center;">Daya Tampung</th>
+                                <th width="20%" style="text-align:center;">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,8 +37,8 @@
                                     <td style="text-align:center;"><?= $no; ?>.</td>
                                     <td><?= $row['nama_kelas'] ?></td>
                                     <td><?= $row['nama_guru'] ?></td>
-                                    <td><?= $row['daya_tampung'] ?></td>
-                                    <td>
+                                    <td style="text-align:center;"><?= $row['daya_tampung'] ?></td>
+                                    <td style="text-align:center;">
                                         <a href="<?= SITE_URL ?>/kelas/edit/<?= $row['id_kelas'] ?>" class="btn btn-sm btn-warning btn-ubah">Ubah</a>
                                         <a href="<?= SITE_URL ?>/kelas/delete/<?= $row['id_kelas'] ?>" class="btn btn-sm btn-danger">Hapus</a>
                                     </td>
