@@ -1,3 +1,9 @@
+.main-content{
+  min-height:calc(100vh - 56px); 
+  padding:20px 0px 70px 0px; 
+  background-color: #fafbfc !important;
+}
+
 .c-header{
   background: #1976d2 !important;
   color:white;
