@@ -13,7 +13,7 @@
         </div>
         <div class="row">
           <div class="col-md-8">
-            <a href="<?= SITE_URL ?>/siswa" id="btn-tambah" class="btn btn-success">Tambah Siswa</a>
+            <a href="<?= SITE_URL ?>/siswa/add" id="btn-tambah" class="btn btn-success">Tambah Siswa</a>
           </div>
           <div class="col-md-4">
               <form id="formPencarian" method="POST">
