@@ -16,7 +16,7 @@
                       <a href="#"><i class="fa fa-list"></i><span>Master Data</span></a>
                       <div class="sidebar-submenu">
                           <ul>
-                              <li><a href="#">Kelas</a></li>
+                              <li><a href="<?= SITE_URL; ?>/kelas">Kelas</a></li>
                               <li><a href="<?= SITE_URL; ?>/guru">Guru</a></li>
                               <li><a href="<?= SITE_URL; ?>/kategori">Kategori</a></li>
                               <li><a href="<?= SITE_URL; ?>/pelanggaran">Pelanggaran</a></li>

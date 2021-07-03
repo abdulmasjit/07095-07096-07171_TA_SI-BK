@@ -7,6 +7,7 @@ require_once 'app/init.php';
 require_once "app/Controllers/AuthController.php";
 require_once "app/Controllers/HomeController.php";
 require_once "app/Controllers/KategoriController.php";
+require_once "app/Controllers/KelasController.php";
 require_once "app/Controllers/GuruController.php";
 require_once "app/Controllers/SiswaController.php";
 require_once "app/Controllers/PelanggaranController.php";
@@ -45,6 +46,25 @@ Route::set('/kategori/delete/{any}', function ($id) {
 Route::set('/kategori/get-detail', function () {
   (new KategoriController())->getDetail();
 }, 'POST');
+
+// Master Kelas
+Route::set('/kelas', function () {
+  (new KelasController())->index();
+});
+Route::set('/kelas/add', function () {
+  (new KelasController())->create();
+});
+Route::set('/kelas/edit/{id}', function ($id) {
+  (new KelasController())->edit($id);
+});
+
+Route::set('/kelas/delete/{any}', function ($id) {
+  (new KelasController())->delete($id);
+});
+Route::set('/kelas/simpan', function () {
+  (new KelasController())->store();
+}, 'POST');
+
 
 // Master Guru
 Route::set('/guru', function () {
