@@ -23,7 +23,7 @@
                             <tr class="bg-light">
                                 <th width="10%" style="text-align:center;">No.</th>
                                 <th width="10%">Kelas</th>
-                                <th width="10%">ID Wali Kelas</th>
+                                <th width="10%">Wali Kelas</th>
                                 <th width="10%">Daya Tampung</th>
                                 <th width="20%">Actions</th>
                             </tr>
@@ -36,7 +36,7 @@
                                 <tr>
                                     <td style="text-align:center;"><?= $no; ?>.</td>
                                     <td><?= $row['nama_kelas'] ?></td>
-                                    <td><?= $row['id_walikelas'] ?></td>
+                                    <td><?= $row['nama_guru'] ?></td>
                                     <td><?= $row['daya_tampung'] ?></td>
                                     <td>
                                         <a href="<?= SITE_URL ?>/kelas/edit/<?= $row['id_kelas'] ?>" class="btn btn-sm btn-warning btn-ubah">Ubah</a>

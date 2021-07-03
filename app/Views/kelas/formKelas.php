@@ -13,9 +13,18 @@
                     <input id="nama" name="nama" class="form-control" value="<?= $form['nama_kelas'] ?>" type="text" class="w-full" required />
                 </div>
                 <div class="mb-3">
+                    <label for="idwalikelas" class="form-label">Pilih Walikelas</label>
+                    <select name="idwalikelas" id="idwalikelas" class="form-control" required>
+                        <option value="">Pilih Walikelas</option>
+                        <?php foreach ($listGuru as $key) : ?>
+                            <option value="<?php echo $key['id_guru'] ?>" <?php if ($key['id_guru'] == $form['id_walikelas']) : ?> selected="selected" <?php endif; ?>><?php echo $key['nama_guru'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <!-- <div class="mb-3">
                     <label for="idwalikelas" class="form-label">ID Wali Kelas</label>
                     <input id="idwalikelas" name="idwalikelas" class="form-control" value="<?= $form['id_walikelas'] ?>" type="text" class="w-full" required />
-                </div>
+                </div> -->
                 <div class="mb-3">
                     <label for="dayatampung" class="form-label">Daya Tampung</label>
                     <input id="dayatampung" name="dayatampung" class="form-control" value="<?= $form['daya_tampung'] ?>" type="text" class="w-full" required />

@@ -53,14 +53,15 @@ Route::set('/kelas', function () {
 Route::set('/kelas/add', function () {
   (new KelasController())->create();
 });
-Route::set('/kelas/update', function () {
-  (new KelasController())->update();
-}, 'POST');
+Route::set('/kelas/edit/{id}', function ($id) {
+  (new KelasController())->edit($id);
+});
+
 Route::set('/kelas/delete/{any}', function ($id) {
   (new KelasController())->delete($id);
 });
-Route::set('/kelas/get-detail', function () {
-  (new KelasController())->getDetail();
+Route::set('/kelas/simpan', function () {
+  (new KelasController())->store();
 }, 'POST');
 
 

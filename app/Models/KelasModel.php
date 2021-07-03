@@ -3,7 +3,7 @@ class KelasModel extends Model
 {
     public function getAll()
     {
-        $sql = " SELECT * FROM kelas ";
+        $sql = " SELECT kelas.id_kelas, kelas.nama_kelas, kelas.daya_tampung, guru.nama_guru from kelas JOIN guru ON guru.id_guru = kelas.id_walikelas ";
         $query = $this->db->query($sql);
 
         $hasil = [];
@@ -22,6 +22,7 @@ class KelasModel extends Model
 
     public function insert($data)
     {
+        // echo 'ini insert', var_dump($data);
         $namaKelas = $data['nama_kelas'];
         $idWalikelas = $data['id_walikelas'];
         $dayatampung = $data['daya_tampung'];

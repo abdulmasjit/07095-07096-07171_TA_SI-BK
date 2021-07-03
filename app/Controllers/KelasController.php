@@ -16,23 +16,16 @@ class KelasController extends Controller
     $this->view('layout/template', $data);
   }
 
-  public function getDetail()
-  {
-    $id = $_POST['id'];
-    $data = $this->KelasModel->getById($id);
-    echo json_encode($data);
-  }
-
   public function create()
   {
-    $data['title'] = 'Tambah Pelanggaran';
+    $data['title'] = 'Tambah Kelas';
     $data['form'] = array(
         'id_kelas' => null,
         'nama_kelas' => null,
         'id_walikelas' => null,
         'daya_tampung' => null
     );
-    $data['listid_walikelas'] = $this->GuruModel->getAll();
+    $data['listGuru'] = $this->GuruModel->getAll();
     $data['content'] = "kelas/formKelas.php";
     $this->view('layout/template', $data);
   }
@@ -41,18 +34,18 @@ class KelasController extends Controller
     {
         $data['title'] = 'Edit kelas';
         $data['form'] = $this->KelasModel->getById($id);
-        $data['listid_walikelas'] = $this->GuruModel->getAll();
+        $data['listGuru'] = $this->GuruModel->getAll();
         $data['content'] = "kelas/formKelas.php";
         $this->view('layout/template', $data);
     }
 
-  public function save()
+  public function store()
   {
     $id = $_POST['id'];
         $data = array(
             'nama_kelas' => $_POST['nama'],
             'id_walikelas' => $_POST['idwalikelas'],
-            'data_tampung' => $_POST['dayatampung'],
+            'daya_tampung' => $_POST['dayatampung'],
         );
         $save = null;
         $editOrAdd = null;
@@ -80,10 +73,10 @@ class KelasController extends Controller
     $delete = $this->KelasModel->delete($id);
     if ($delete) {
       Flasher::setFlash('Data Kelas berhasil dihapus', 'Berhasil', 'success');
-      header('location:' . SITE_URL . '/Kelas');
+      header('location:' . SITE_URL . '/kelas');
     } else {
       Flasher::setFlash('Data Kelas gagal dihapus', 'Gagal', 'danger');
-      header('location:' . SITE_URL . '/Kelas');
+      header('location:' . SITE_URL . '/kelas');
     }
   }
 }
