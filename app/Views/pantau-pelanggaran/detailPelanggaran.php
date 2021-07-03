@@ -1,3 +1,4 @@
+<!-- <a href="<?= SITE_URL; ?>/pantau-pelanggaran" class="btn btn-success" style="margin-bottom:10px;">Kembali</a> -->
 <div class="row">
   <div class="col-md-4">
     <div class="card">
@@ -6,8 +7,8 @@
       </div>
       <div class="card-body">
         <div class="text-center">
-          <span><b>Total Poin</b></span>
-          <h1 style="color:red; font-size:35pt;">90</h1>
+          <span><b>Jumlah Poin Aktif</b></span>
+          <h1 style="color:red; font-size:40pt;"><?php echo 100 - $detail_siswa['total_poin'] ?></h1>
         </div>
         <br>
         <!-- <hr> -->
@@ -15,29 +16,34 @@
           <tr>
             <td valign="top" width="10%">NIS</td>
             <td valign="top" width="3%">:</td>
-            <td valign="top" width="50%">4567890</td>
+            <td valign="top" width="50%"><?= $detail_siswa['nis'] ?></td>
           </tr>
           <tr>
             <td valign="top">Nama</td>
             <td valign="top">:</td>
-            <td valign="top">Masjit Subekti</td>
+            <td valign="top"><?= $detail_siswa['nama_siswa'] ?></td>
           </tr>
           <tr>
             <td valign="top">Kelas</td>
             <td valign="top">:</td>
-            <td valign="top">XI A</td>
+            <td valign="top"><?= $detail_siswa['kelas'] ?></td>
           </tr>
           <tr>
             <td valign="top">No Telp</td>
             <td valign="top">:</td>
-            <td valign="top">XI A</td>
+            <td valign="top"><?= $detail_siswa['no_hp'] ?></td>
           </tr>
           <tr>
             <td valign="top">Alamat</td>
             <td valign="top">:</td>
-            <td valign="top">XI A</td>
+            <td valign="top"><?= $detail_siswa['alamat'] ?></td>
           </tr>
         </table>
+        <?php 
+          $role = $_SESSION['user']['role'];
+          if($role=='HA01' || $role=='HA02'){ ?>
+            <a href="<?= SITE_URL; ?>/pantau-pelanggaran" class="btn btn-success" style="float:right;">Kembali</a>
+        <?php } ?>
       </div>
     </div>
     <br>

@@ -8,12 +8,23 @@ class PantauPelanggaranController extends Controller{
 
   public function index()
   {
-    $keyword = (isset($_POST['cari'])) ? $_POST['cari'] : '';
     $data['title'] = 'Pelanggaran Siswa';
-    $data['data_kelas'] = $this->siswaModel->getListKelas();
-    $data['list'] = $this->siswaModel->getAll($keyword);
-    $data['content'] = "pantau-pelanggaran/index.php";
-    $this->view('layout/template', $data);
+    $role = $_SESSION['user']['role'];
+    if($role=='HA01' || $role=='HA02'){
+      $keyword = (isset($_POST['cari'])) ? $_POST['cari'] : '';
+      $idKelas = (isset($_POST['kelas'])) ? $_POST['kelas'] : '';
+      $data['detail'] = array(
+        'kelas' => $idKelas,  
+        'keyword' => $keyword,  
+      );
+      $data['data_kelas'] = $this->siswaModel->getListKelas();
+      $data['list'] = $this->siswaModel->getSiswaByKelas($idKelas, $keyword);
+      $data['content'] = "pantau-pelanggaran/index.php";
+      $this->view('layout/template', $data);
+    }else{
+      $id_siswa = $_SESSION['user']['id'];
+      $this->detailPelanggaran($id_siswa);
+    }
   }
 
   public function detailPelanggaran($id)
@@ -21,7 +32,7 @@ class PantauPelanggaranController extends Controller{
     $data['title'] = 'Pelanggaran Siswa';
     $data['content'] = "pantau-pelanggaran/detailPelanggaran.php";
     $data['list'] = $this->pelanggaranSiswaModel->pelanggaranByIdSiswa($id);
+    $data['detail_siswa'] = $this->siswaModel->getById($id);
     $this->view('layout/template', $data);
   }
-
 }

@@ -5,44 +5,40 @@
         <span><b>Daftar Siswa</b></span>
       </div>
       <div class="card-body">
-        <!-- Pesan -->
-        <div class="row">
-          <div class="col-md-12">
-            <?php Flasher::flashMessage(); ?>
-          </div>
-        </div>
-        <div class="row">
-					<div class="col-md-4">
-					</div>
-          <div class="col-md-4">
-            <div class="form-group">
-							<select class="form-control" name="kelas" id="kelas">
-								<option value="">Pilih Kelas</option>
-								<?php foreach ($data_kelas as $row) { ?>
-									<option  
-										<?php if(isset($detail)){
-											if($detail['id_kelas']==$row['id_kelas']){
-												echo 'selected ';
-											}
-										} ?>
-									value="<?= $row['id_kelas'] ?>"><?= $row['nama_kelas'] ?></option>
-								<?php } ?>
-							</select>
+        <form id="formPencarian" method="POST">
+          <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <select class="form-control" name="kelas" id="kelas">
+                  <option value="">Semua Kelas</option>
+                  <?php foreach ($data_kelas as $row) { ?>
+                    <option  
+                      <?php if(isset($detail)){
+                        if($detail['kelas']==$row['id_kelas']){
+                          echo 'selected ';
+                        }
+                      } ?>
+                    value="<?= $row['id_kelas'] ?>"><?= $row['nama_kelas'] ?></option>
+                  <?php } ?>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-4">
+                  <div class="input-group">
+                      <input type="text" id="cari" name="cari" class="form-control" placeholder="Cari . . ." 
+                        value="<?php echo (isset($detail)) ? $detail['keyword'] : ''; ?>" 
+                      >
+                      <div class="input-group-append" id="btn-search" style="cursor:pointer;">
+                          <span class="input-group-text">
+                              <i class="fa fa-search"></i>
+                          </span>
+                      </div>
+                  </div>
             </div>
           </div>
-          <div class="col-md-4">
-              <form id="formPencarian" method="POST">
-                <div class="input-group">
-                    <input type="text" id="cari" name="cari" class="form-control" placeholder="Cari . . .">
-                    <div class="input-group-append" id="btn-search" style="cursor:pointer;">
-                        <span class="input-group-text">
-                            <i class="fa fa-search"></i>
-                        </span>
-                    </div>
-                </div>
-              </form>
-          </div>
-        </div>
+        </form>
         <div class="mt-3">
           <table class="table table-bordered">
             <thead>
@@ -87,6 +83,10 @@
 <script>
   // Event click icon search
   $('#btn-search').on('click', function (e) {
+    $('#formPencarian').submit();
+	})
+
+  $('#kelas').on('change', function (e) {
     $('#formPencarian').submit();
 	})
 </script>
