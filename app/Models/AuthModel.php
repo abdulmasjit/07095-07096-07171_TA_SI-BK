@@ -10,13 +10,14 @@ class AuthModel extends Model {
     {
         $sql = "
             SELECT * FROM (
-                SELECT username, nama AS nama, password, 'HA01' AS role FROM admin
+                SELECT id_admin AS id, username, nama AS nama, password, 'HA01' AS role, 'ADMIN' AS nama_role FROM admin
                 UNION ALL
-                SELECT nip, nama_guru AS nama, password, 'HA02' AS role FROM guru
+                SELECT id_guru AS id, nip AS username, nama_guru AS nama, password, 'HA02' AS role, 'GURU' AS nama_role FROM guru
                 UNION ALL
-                SELECT nis, nama_siswa AS nama, password, 'HA03' AS role FROM siswa
+                SELECT id_siswa AS id, nis AS username, nama_siswa AS nama, password, 'HA03' AS role, 'SISWA' AS nama_role FROM siswa
             )x
-            WHERE x.username = '$username' AND x.password = MD5('$password')
+            WHERE x.username = '$username' AND (x.password = MD5('$password') OR x.PASSWORD = '$password')
+            LIMIT 1
         ";
         $query = $this->db->query($sql);
         return $query->fetch_assoc();
