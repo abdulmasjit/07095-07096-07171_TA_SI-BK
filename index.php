@@ -13,6 +13,7 @@ require_once "app/Controllers/SiswaController.php";
 require_once "app/Controllers/PelanggaranController.php";
 require_once "app/Controllers/PelanggaranSiswaController.php";
 require_once "app/Controllers/PantauPelanggaranController.php";
+require_once "app/Controllers/AdminController.php";
 
 // Auth
 Route::set('/auth/login', function () {
@@ -140,4 +141,21 @@ Route::set('/pantau-pelanggaran', function () {
 }, 'GET|POST');
 Route::set('/detail-pelanggaran/{any}', function ($id) {
   (new PantauPelanggaranController)->detailPelanggaran($id);
+});
+
+// Master Admin
+Route::set('/user-admin', function () {
+  (new AdminController)->index();
+});
+Route::set('/user-admin/add', function () {
+  (new AdminController)->create();
+});
+Route::set('/user-admin/edit/{id}', function ($id) {
+  (new AdminController)->edit($id);
+});
+Route::set('/user-admin/simpan', function () {
+  (new AdminController())->store();
+}, 'POST');
+Route::set('/user-admin/delete/{any}', function ($id) {
+  (new AdminController())->delete($id);
 });
